@@ -1,0 +1,30 @@
+{
+  "ecmaFeatures": {
+    "jsx": true,
+    "classes": true,
+    "modules": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "strict": [2, "never"],
+    "comma-dangle": [1, "never"],
+    "indent": ["error", 2],
+    'no-confusing-arrow': ["error", {'allowParens': true}],
+    "jsx-quotes": 1,
+    "no-underscore-dangle": 0,
+    "no-use-before-define": 0,
+    "max-len": 0
+  },
+  "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+}

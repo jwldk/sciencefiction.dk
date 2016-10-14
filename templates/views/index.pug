@@ -1,0 +1,9 @@
+extends ../layouts/default
+
+block content
+  h1 Science Fiction Cirklen
+  each pub in pubs
+    h3= pub.title
+    p
+      h4= pub.image
+      img(src=pub.image.url)
