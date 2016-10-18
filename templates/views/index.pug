@@ -8,13 +8,16 @@ block content
   p Medlemskab koster 150kr og dette giver 20% rabat på alle vores udgivelser samt særlige medlemstilbud. Klik her for mere info om medlemskab.
 
   each newspost in news
-    h3= newspost.title
+    h3 
+      a(href=newspost.articleUrl)= newspost.title
     p
       span.glyphicon.glyphicon-time
       |  
       = newspost._.createdAt.format('LL')
     p 
       != newspost.content.brief
+    p
+      a(href=newspost.articleUrl) Læs mere...
 
 block top-sidebar
   h4 Nye udgivelser
@@ -31,11 +34,11 @@ block top-sidebar
 block bottom-sidebar
   h4 Nyeste bøger
   each pub in pubs
-    .row(style="margin-bottom: 15px;")
-      .col-md-6
-        img.img-responsive(src=pub.image.url)
-      .col-md-6
-        a(href=pub.articleUrl)
+    a(href=pub.articleUrl)
+      .row(style="margin-bottom: 15px;")
+        .col-md-6
+          img.img-responsive(src=pub.image.url)
+        .col-md-6
           h5= pub.title
           p af #{pub.author}
           p Udgivet #[span #{pub._.pubdate.format('LL')}]

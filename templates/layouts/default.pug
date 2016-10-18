@@ -31,8 +31,17 @@ html(lang='en')
         // Collect the nav links, forms, and other content for toggling
         #sfc-navbar-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav
-            li
-              a(href='#') About
+            li.dropdown
+              a.dropdown-toggle(data-toggle="dropdown", role="button")
+                | Udgivelser
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href='/udgivelser/bog') Bøger
+                li
+                  a(href='/udgivelser/novum') Novum
+                li
+                  a(href='/udgivelser/proxima') Proxima
             li
               a(href='#') Services
             li
@@ -53,10 +62,25 @@ html(lang='en')
         .col-md-8
           block content
         // Blog Sidebar Widgets Column
-        .col-md-4
+        #sidebar.col-md-4
           // Blog Categories Well
           .well
+            h4 Næste medlemsmøde
+            if event
+              h5 
+                a(href=event.articleUrl)= event.title
+            else
+              | Ingen kommende møder
+          .well
             block top-sidebar
+          .well
+            .row
+              .col-md-6
+                a(href='/static/medlemsskab')
+                  img.img-responsive(src='/images/medlemsskab.jpg')
+              .col-md-6
+                a(href='/static/proxima-abonnement')
+                  img.img-responsive(src='/images/proximaabo.jpg')
           .well
             block bottom-sidebar
       // /.row

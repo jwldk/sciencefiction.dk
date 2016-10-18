@@ -17,8 +17,8 @@ Article.add({
   articletype: { type: Types.Select, options: 'STATIC, NYHED, GENERALFORSAMLING' }
 });
 
-Article.schema.virtual('content.full').get(function () {
-  return this.content.extended || this.content.brief;
+Article.schema.virtual('articleUrl').get(function() {
+  return this.articletype.toLowerCase()+'/'+this.key;
 });
 
 Article.defaultColumns = 'title';
