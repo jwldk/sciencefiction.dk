@@ -21,7 +21,7 @@ html(lang='en')
       .container
         // Brand and toggle get grouped for better mobile display
         .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#sfc-navbar-collapse')
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
@@ -29,7 +29,7 @@ html(lang='en')
           a.navbar-brand(href='#')
             span.glyphicon.glyphicon-home
         // Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        #sfc-navbar-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav
             li
               a(href='#') About
@@ -37,6 +37,13 @@ html(lang='en')
               a(href='#') Services
             li
               a(href='#') Contact
+          .col-sm-3.col-md-3.pull-right
+            .navbar-form(role="search")
+              .input-group
+                input.form-control(type='text')
+                span.input-group-btn
+                  button.btn.btn-default(type='button')
+                    span.glyphicon.glyphicon-search
         // /.navbar-collapse
       // /.container
     // Page Content
@@ -47,47 +54,11 @@ html(lang='en')
           block content
         // Blog Sidebar Widgets Column
         .col-md-4
-          // Blog Search Well
-          .well
-            h4 Blog Search
-            .input-group
-              input.form-control(type='text')
-              span.input-group-btn
-                button.btn.btn-default(type='button')
-                  span.glyphicon.glyphicon-search
-            // /.input-group
           // Blog Categories Well
           .well
-            h4 Blog Categories
-            .row
-              .col-lg-6
-                ul.list-unstyled
-                  li
-                    a(href='#') Category Name
-                  li
-                    a(href='#') Category Name
-                  li
-                    a(href='#') Category Name
-                  li
-                    a(href='#') Category Name
-              // /.col-lg-6
-              .col-lg-6
-                ul.list-unstyled
-                  li
-                    a(href='#') Category Name
-                  li
-                    a(href='#') Category Name
-                  li
-                    a(href='#') Category Name
-                  li
-                    a(href='#') Category Name
-              // /.col-lg-6
-            // /.row
-          // Side Widget Well
+            block top-sidebar
           .well
-            h4 Side Widget Well
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.
+            block bottom-sidebar
       // /.row
           // /.col-lg-12
         // /.row

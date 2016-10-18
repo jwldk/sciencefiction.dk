@@ -2,6 +2,8 @@
 // customising the .env file in your project's root folder.
 require('babel-register');
 require('dotenv').config();
+var moment = require('moment');
+moment.locale('da');
 
 // Require keystone
 const keystone = require('keystone');

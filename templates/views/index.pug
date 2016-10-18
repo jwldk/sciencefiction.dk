@@ -2,8 +2,43 @@ extends ../layouts/default
 
 block content
   h1 Science Fiction Cirklen
-  each pub in pubs
-    h3= pub.title
+  p Science Fiction Cirklen er Danmarks ældste og største forening, som beskæftiger sig med hele science fiction genren.
+  p Vi har medlemsmøder, holder kongresser og andre aktiviteter. Vi udgiver både et medlemsblad Novum og et faglitterært tidsskrift Proxima. Desuden udgiver vi bøger, både skøn- og faglitterært om science fiction.
+  p Vil du vide mere om science fiction, så læs vores FAQ og gå på opdagelse i vores mange artikler. SFCs webside vil afspejle hvad foreningen kan byde på og man kan derfor finde mange spændende ting at læse. Det er ikke blot en reklame for os selv, men en hel portal for alle science fiction interesserede der godt vil bruge mere end 30sek på en webside. Der kommer løbende nye artikler, anmeldelser her på siden og spændende indlæg på blogsene ESSEF og Ekkorummet.
+  p Medlemskab koster 150kr og dette giver 20% rabat på alle vores udgivelser samt særlige medlemstilbud. Klik her for mere info om medlemskab.
+
+  each newspost in news
+    h3= newspost.title
     p
-      h4= pub.image
-      img(src=pub.image.url)
+      span.glyphicon.glyphicon-time
+      |  
+      = newspost._.createdAt.format('LL')
+    p 
+      != newspost.content.brief
+
+block top-sidebar
+  h4 Nye udgivelser
+  .row
+    .col-md-6
+      a(href=novum.articleUrl)
+        h5= novum.title
+        img.img-responsive(src=novum.image.url)
+    .col-md-6
+      a(href=proxima.articleUrl)
+        h5= proxima.title
+        img.img-responsive(src=proxima.image.url)
+
+block bottom-sidebar
+  h4 Nyeste bøger
+  each pub in pubs
+    .row(style="margin-bottom: 15px;")
+      .col-md-6
+        img.img-responsive(src=pub.image.url)
+      .col-md-6
+        a(href=pub.articleUrl)
+          h5= pub.title
+          p af #{pub.author}
+          p Udgivet #[span #{pub._.pubdate.format('LL')}]
+          p #{pub.price} kr 
+            | #[span(style="color: #ff6600;") (#{pub.memberPrice} kr)]
+

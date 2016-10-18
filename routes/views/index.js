@@ -1,5 +1,6 @@
 import keystone from 'keystone';
 const Publication = keystone.list('Publication');
+const Article = keystone.list('Article');
 
 exports = module.exports = (req, res) => {
 
@@ -11,10 +12,31 @@ exports = module.exports = (req, res) => {
   locals.section = 'home';
 
   view.on('init', (next) => {
-    Publication.model.find().exec((err, pubs) => {
+    Publication.model.find({'pubtype': 'BOG'}).exec((err, pubs) => {
       locals.pubs = pubs; 
       next();
     }); 
+  });
+
+  view.on('init', (next) => {
+    Publication.model.findOne({'pubtype': 'PROXIMA'}).exec((err, proxima) => {
+      locals.proxima = proxima;
+      next();
+    }); 
+  });
+
+  view.on('init', (next) => {
+    Publication.model.findOne({'pubtype': 'NOVUM'}).exec((err, novum) => {
+      locals.novum = novum;
+      next();
+    }); 
+  });
+
+  view.on('init', (next) => {
+    Article.model.find({'articletype': 'NYHED', 'frontpage': true }).exec((err, news) => {
+      locals.news = news;
+      next();
+    });  
   });
 
   // Render the view

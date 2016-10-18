@@ -7,6 +7,7 @@ const Article = new keystone.List('Article', {
 });
 
 Article.add({
+  createdAt: { type: Types.Date, default: Date.now },
   title: { type: Types.Text, required: true, initial: true, index: true },
   content: {
     brief: { type: Types.Html, wysiwyg: true, height: 150 },
@@ -14,6 +15,10 @@ Article.add({
   },
   frontpage: { type: Types.Boolean, default: false },
   articletype: { type: Types.Select, options: 'STATIC, NYHED, GENERALFORSAMLING' }
+});
+
+Article.schema.virtual('content.full').get(function () {
+  return this.content.extended || this.content.brief;
 });
 
 Article.defaultColumns = 'title';
