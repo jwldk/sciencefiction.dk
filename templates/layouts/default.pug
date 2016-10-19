@@ -9,7 +9,7 @@ html(lang='en')
     title Blog Home - Start Bootstrap Template
     // CSS
     link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
-    link(href='styles/site.css', rel='stylesheet')
+    link(href='/styles/site.css', rel='stylesheet')
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
@@ -59,18 +59,18 @@ html(lang='en')
     .container
       .row
         // Blog Entries Column
-        .col-md-8
+        #content.col-md-8
           block content
         // Blog Sidebar Widgets Column
         #sidebar.col-md-4
           // Blog Categories Well
-          .well
-            h4 Næste medlemsmøde
-            if event
-              h5 
-                a(href=event.articleUrl)= event.title
-            else
-              | Ingen kommende møder
+          // .well
+          //   h4 Næste medlemsmøde
+          //   if event
+          //     h5 
+          //       a(href=event.articleUrl)= event.title
+          //   else
+          //     | Ingen kommende møder
           .well
             block top-sidebar
           .well

@@ -14,5 +14,6 @@ const routes = {
 exports = module.exports = app => {
   // Views
   app.get('/', routes.views.index);
+  app.get('/udgivelser/:pubtype/:key', routes.views.publication);
 };
 

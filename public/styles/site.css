@@ -4,3 +4,6 @@ body {
 #sidebar a {
   color: #333;
   text-decoration: none; }
+
+#content p {
+  font-size: 16px; }

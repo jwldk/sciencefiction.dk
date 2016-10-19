@@ -12,28 +12,28 @@ exports = module.exports = (req, res) => {
   locals.section = 'home';
 
   view.on('init', (next) => {
-    Publication.model.find({'pubtype': 'BOG'}).exec((err, pubs) => {
+    Publication.model.find({'pubtype': 'bog'}).exec((err, pubs) => {
       locals.pubs = pubs; 
       next();
     }); 
   });
 
   view.on('init', (next) => {
-    Publication.model.findOne({'pubtype': 'PROXIMA'}).exec((err, proxima) => {
+    Publication.model.findOne({'pubtype': 'proxima'}).exec((err, proxima) => {
       locals.proxima = proxima;
       next();
     }); 
   });
 
   view.on('init', (next) => {
-    Publication.model.findOne({'pubtype': 'NOVUM'}).exec((err, novum) => {
+    Publication.model.findOne({'pubtype': 'novum'}).exec((err, novum) => {
       locals.novum = novum;
       next();
     }); 
   });
 
   view.on('init', (next) => {
-    Article.model.find({'articletype': 'NYHED', 'frontpage': true }).exec((err, news) => {
+    Article.model.find({'articletype': 'nyhed', 'frontpage': true }).exec((err, news) => {
       locals.news = news;
       next();
     });  

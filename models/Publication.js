@@ -23,13 +23,13 @@ var pubStorage = new keystone.Storage({
 Publication.add({
   title: { type: Types.Text, required: true, initial: true, index: true },
   content: { type: Types.Html, wysiwyg: true },
-  pubtype: { type: Types.Select, options: 'BOG, PROXIMA, NOVUM' },
+  pubtype: { type: Types.Select, options: 'bog, proxima, novum' },
   pubdate: { type: Types.Date },
   image: { type: Types.File, storage: pubStorage },
-  isbn: { type: Types.Text, dependsOn: { pubtype: 'BOG'} },
-  price: { type: Types.Number, dependsOn: { pubtype: 'BOG'} },
-  author: { type: Types.Text, dependsOn: { pubtype: 'BOG'} },
-  pages: { type: Types.Number, dependsOn: { pubtype: 'BOG'} }
+  isbn: { type: Types.Text, dependsOn: { pubtype: 'bog'} },
+  price: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
+  author: { type: Types.Text, dependsOn: { pubtype: 'bog'} },
+  pages: { type: Types.Number, dependsOn: { pubtype: 'bog'} }
 
 });
 
@@ -38,7 +38,7 @@ Publication.schema.virtual('memberPrice').get(function() {
 });
 
 Publication.schema.virtual('articleUrl').get(function() {
-  return '/udgivelser/'+this.pubtype.toLowerCase()+'/'+this.key;
+  return '/udgivelser/'+this.pubtype+'/'+this.key;
 });
 
 Publication.defaultColumns = 'title';

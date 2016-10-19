@@ -14,11 +14,11 @@ Article.add({
     extended: { type: Types.Html, wysiwyg: true, height: 400 }
   },
   frontpage: { type: Types.Boolean, default: false },
-  articletype: { type: Types.Select, options: 'STATIC, NYHED, GENERALFORSAMLING' }
+  articletype: { type: Types.Select, options: 'static, nyhed, generalforsamling' }
 });
 
 Article.schema.virtual('articleUrl').get(function() {
-  return this.articletype.toLowerCase()+'/'+this.key;
+  return this.articletype+'/'+this.key;
 });
 
 Article.defaultColumns = 'title';
