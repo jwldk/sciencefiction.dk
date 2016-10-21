@@ -1,5 +1,4 @@
 import keystone from 'keystone';
-const Publication = keystone.list('Publication');
 const Article = keystone.list('Article');
 
 exports = module.exports = (req, res) => {
@@ -9,16 +8,17 @@ exports = module.exports = (req, res) => {
 
   // locals.section is used to set the currently selected
   // item in the header navigation.
-  locals.section = 'home';
+  locals.section = 'articles';
 
   view.on('init', (next) => {
-    Article.model.find({'articletype': 'nyhed', 'frontpage': true }).exec((err, news) => {
-      locals.news = news;
-      next();
-    });  
+    Article.model.findOne()
+      .where('articletype', req.params.articletype)
+      .where('key', req.params.key)
+      .exec((err, article) => {
+        locals.article = article;
+        next();
+      });
   });
 
-  // Render the view
-  view.render('index');
+  view.render('article');
 };
-

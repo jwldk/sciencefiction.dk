@@ -1,17 +1,42 @@
-body {
-  padding-top: 70px;
+.publication-card {
+  color: #333;
+  text-decoration: none;
 }
 
-#sidebar {
-  a {
-    color: #333;
+#content {
+  .article-content {
+    p {
+      font-size: 16px;
+    }
+  }
+  
+  .img-responsive {
+    width: 100%;
+  }
+  h3 {
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    &.subtitle {
+      font-size: 18px;
+      margin: 0 0 15px 0;
+      font-style: italic;
+      color: #777;
+    }
+  }
+}
+
+a.btn-order {
+  background-color: #333;
+  width: 100%;
+  color: #fff;
+  &:hover {
+    color: #fff;
     text-decoration: none;
   }
 }
 
-#content {
-  p {
-    font-size: 16px;
-  }
+ol.breadcrumb {
+  background-color: #eceeef;
 }
-

@@ -1,5 +1,5 @@
 import keystone from 'keystone';
-import {initLocals} from './middleware';
+import {initLocals, commonElements} from './middleware';
 const importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
@@ -10,10 +10,19 @@ const routes = {
   views: importRoutes('./views')
 };
 
+keystone.set('404', function(req, res, next) {
+  res.status(404).render('errors/404');
+  next();
+});
+
 // Setup Route Bindings
 exports = module.exports = app => {
   // Views
+  app.get('*', commonElements);
   app.get('/', routes.views.index);
+  app.get('/udgivelser/:pubtype', routes.views.publications);
   app.get('/udgivelser/:pubtype/:key', routes.views.publication);
+  app.get('/events/:eventtype/:key', routes.views.event);
+  app.get('/articles/:articletype/:key', routes.views.article);
 };
 

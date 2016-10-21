@@ -1,0 +1,31 @@
+mixin publication-card(pub)
+    a.publication-card(href=pub.articleUrl)
+      .row(style="margin-bottom: 15px;")
+        .col-md-6
+          img.img-responsive(src=pub.image.url)
+        .col-md-6
+          h5= pub.title
+          if pub.author
+            p af #{pub.author}
+          if pub.subtitle
+            p= pub.subtitle
+          if pub.pubtype === 'bog'
+            p Udgivet #[span #{pub._.pubdate.format('LL')}]
+          else if pub.pubtype === 'novum'
+            p= pub._.pubdate.format('MMMM YYYY')
+          else if pub.pubtype === 'proxima'
+            p
+              if pub._.pubdate.moment().quarter() > 3
+                | efterår 
+              else
+                | forår
+              = pub._.pubdate.format('YYYY')
+          if pub.price
+            p #{pub.price} kr 
+                | #[span(style="color: #ff6600;") (#{pub.memberPrice} kr)]
+
+mixin publication-card-short(pub)
+  a(href=pub.articleUrl)
+    h5= pub.title
+    img.img-responsive(src=pub.image.url)
+

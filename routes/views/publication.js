@@ -19,6 +19,15 @@ exports = module.exports = (req, res) => {
         next();
       });
   });
+
+  view.on('init', (next) => {
+    Publication.model.find()
+      .where('series', locals.publication.series)
+      .exec((err, pubs) => {
+        locals.similar = pubs;
+        next(); 
+      });
+  });
   // Render the view
   view.render('publication');
 };

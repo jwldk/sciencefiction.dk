@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block content
+  h2= event.title
+  h3.subtitle
+    span.glyphicon.glyphicon-time
+    |  
+    = event._.startAt.format('LLLL')
+  .row
+    .col-md-8
+      .article-content
+        != event.description
+    .col-md-4
+      .well
+        p= event.venue
+        p= event.room

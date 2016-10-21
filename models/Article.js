@@ -18,7 +18,7 @@ Article.add({
 });
 
 Article.schema.virtual('articleUrl').get(function() {
-  return this.articletype+'/'+this.key;
+  return '/articles/'+this.articletype+'/'+this.key;
 });
 
 Article.defaultColumns = 'title';

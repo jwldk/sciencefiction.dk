@@ -1,10 +1,39 @@
 extends ../layouts/default
 
 block content
+  ol.breadcrumb
+    li.breadcrumb-item
+      a(href='/udgivelser/'+publication.pubtype)= publication.pubtypeLabel 
+    li.breadcrumb-item.active= publication.title
   h2= publication.title
+  if publication.subtitle
+    h3.subtitle #{publication.subtitle}
+  else if publication.author
+    h3.subtitle af #{publication.author}
   .row
     .col-md-8
       .article-content
         != publication.content
     .col-md-4
       img.img-responsive(src=publication.image.url)
+      if publication.pubtype === 'bog'
+        dl.row
+          dt.col-sm-2 Pris
+          dd.col-sm-10= publication.price
+            |  kr
+            br
+            | #[span(style="color: #ff6600;") (medlemmer: #{publication.memberPrice} kr)]
+          dt.col-sm-2 Sider
+          dd.col-sm-10= publication.pages
+          dt.col-sm-2 ISBN
+          dd.col-sm-10= publication.isbn
+          dt.col-sm-2 Serie
+          dd.col-sm-10= publication.seriesLabel
+        a.btn.btn-order(type="button", href="/static/bestilling") Bestil
+  if publication.pubtype === 'bog'
+    h4 Lignende udgivelser
+    .row
+      each pub in similar
+        .col-md-3
+          +publication-card-short(pub)
+
