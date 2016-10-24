@@ -1,4 +1,6 @@
 import keystone from 'keystone';
+import mongooseRandom from 'mongoose-simple-random';
+
 const Types = keystone.Field.Types;
 
 const Publication = new keystone.List('Publication', {
@@ -49,6 +51,8 @@ Publication.schema.virtual('memberPrice').get(function() {
 Publication.schema.virtual('articleUrl').get(function() {
   return '/udgivelser/'+this.pubtype+'/'+this.key;
 });
+
+Publication.schema.plugin(mongooseRandom);
 
 Publication.defaultColumns = 'title';
 Publication.register();

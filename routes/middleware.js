@@ -38,6 +38,13 @@ export function commonElements(req, res, next) {
     },
     (cb) => {
       Publication.model
+        .findOneRandom({'pubtype': 'bog'}, {}, {}, (err, random) => {
+          locals.random = random;
+          cb();
+        });
+    },
+    (cb) => {
+      Publication.model
         .findOne({'pubtype': 'proxima'})
         .sort('-pubdate')
         .exec((err, proxima) => {
