@@ -30,7 +30,7 @@ block content
           dt.col-sm-2 Serie
           dd.col-sm-10= publication.seriesLabel
         a.btn.btn-order(type="button", href="/static/bestilling") Bestil
-  if publication.pubtype === 'bog'
+  if publication.pubtype === 'bog' && similar.length
     h4 Lignende udgivelser
     .row
       each pub in similar

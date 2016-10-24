@@ -28,16 +28,6 @@ export function commonElements(req, res, next) {
     },
     (cb) => {
       Publication.model
-        .find({'pubtype': 'bog'})
-        .sort('-pubdate')
-        .limit(6)
-        .exec((err, pubs) => {
-          locals.pubs = pubs; 
-          cb();
-        }); 
-    },
-    (cb) => {
-      Publication.model
         .findOneRandom({'pubtype': 'bog'}, {}, {}, (err, random) => {
           locals.random = random;
           cb();

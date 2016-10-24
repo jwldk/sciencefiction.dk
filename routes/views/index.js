@@ -12,10 +12,23 @@ exports = module.exports = (req, res) => {
   locals.section = 'home';
 
   view.on('init', (next) => {
-    Article.model.find({'articletype': 'nyhed', 'frontpage': true }).exec((err, news) => {
-      locals.news = news;
-      next();
-    });  
+    Article.model.find({'articletype': 'nyhed', 'frontpage': true })
+      .sort('-createdAt')
+      .exec((err, news) => {
+        locals.news = news;
+        next();
+      });  
+  });
+
+  view.on('init', (next) => {
+    Publication.model
+      .find({'pubtype': 'bog'})
+      .sort('-pubdate')
+      .limit(6)
+      .exec((err, pubs) => {
+        locals.pubs = pubs; 
+        next();
+      }); 
   });
 
   // Render the view

@@ -18,5 +18,12 @@ block content
     .article-content
       p 
         != newspost.content.brief
-      p
-        a(href=newspost.articleUrl) Læs mere...
+      if newspost.content.extended
+        p
+          a(href=newspost.articleUrl) Læs mere...
+
+block bottom-sidebar
+  .well
+    h4 Nyeste bøger
+    each pub in pubs
+      +publication-card(pub)
