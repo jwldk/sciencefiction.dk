@@ -15,6 +15,9 @@ exports = module.exports = (req, res) => {
       .where('articletype', req.params.articletype)
       .where('key', req.params.key)
       .exec((err, article) => {
+        if(!article) {
+          return res.status(404).render('errors/404');
+        }
         locals.article = article;
         next();
       });
