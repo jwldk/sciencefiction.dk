@@ -28,7 +28,8 @@ block content
           dt.col-sm-2 ISBN
           dd.col-sm-10= publication.isbn
           dt.col-sm-2 Serie
-          dd.col-sm-10= publication.seriesLabel
+          dd.col-sm-10
+            a(href="/udgivelser/bog?series="+publication.series)= publication.seriesLabel
         a.btn.btn-order(type="button", href="/static/bestilling") Bestil
   if publication.pubtype === 'bog' && similar.length
     h4 Lignende udgivelser

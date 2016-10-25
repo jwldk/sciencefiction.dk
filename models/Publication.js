@@ -39,8 +39,15 @@ Publication.add({
   pages: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
   series: { type: Types.Select, dependsOn: { pubtype: 'bog'}, options: [
     { value: 'luo', label: 'Lige under overfladen' },
+    { value: 'nydansk', label: 'Ny dansk sf' },
+    { value: 'gammeldansk', label: 'Gammel dansk sf' },
+    { value: 'klassik', label: 'Klassikere og kuriositeter' },
+    { value: 'international', label: 'Internationale topnavne' },
+    { value: 'faglitteratur', label: 'Faglitteratur' },
     { value: 'nen', label: 'Niels E. Nielsen'},
-    { value: 'zap', label: 'Zap!'}
+    { value: 'zap', label: 'Zap!'},
+    { value: 'roman', label: 'Romaner' },
+    { value: 'engelsk', label: 'Engelsk' }
   ]}
 });
 

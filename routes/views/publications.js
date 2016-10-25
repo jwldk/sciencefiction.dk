@@ -10,13 +10,16 @@ exports = module.exports = (req, res) => {
   locals.section = req.params.pubtype;
 
   view.on('init', (next) => {
-    Publication.paginate({
+    let q = Publication.paginate({
       page: req.query.page || 1,
       perPage: 10
-    })
-    .where('pubtype', req.params.pubtype)
-    .sort('-pubdate')
-    .exec((err, publications) => {
+    });
+    if(req.query.series) {
+      q.where('series', req.query.series);
+    }
+    q.where('pubtype', req.params.pubtype);
+    q.sort('-pubdate');
+    q.exec((err, publications) => {
       locals.publications = publications;
       next();
     });
