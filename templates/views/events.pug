@@ -1,0 +1,26 @@
+extends ../layouts/default
+include ../mixins/elements
+
+block content
+  if medlemsevents.length
+    h2 Kommende medlemsmøder
+    table.table.table-striped.table-inverse(style="width: 100%;")
+      tbody
+        each event in medlemsevents
+          tr
+            td
+              a(href=event.articleUrl)= event.title
+            td= event._.startAt.format('LLLL')
+            td= event.venue
+
+  if bestyrelsesevents.length
+    h2 Kommende bestyrelsesmøder
+    table.table.table-striped.table-inverse(style="width: 100%;")
+      tbody
+        each event in bestyrelsesevents
+          tr
+            td
+              a(href=event.articleUrl)= event.title
+            td= event._.startAt.format('LLLL')
+            td= event.venue
+

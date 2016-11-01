@@ -88,9 +88,13 @@ html(lang='en')
           block top-sidebar
             .well
               h4 Næste medlemsmøde
+                span.pull-right
+                  a(href='/events') se alle
               if nextevent
-                h5 
+                p 
                   a(href=nextevent.articleUrl)= nextevent.title
+                  br
+                  = nextevent._.startAt.format('dddd, D MMMM, HH:MM')
               else
                 | Ingen kommende møder
           .well

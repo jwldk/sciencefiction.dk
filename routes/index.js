@@ -22,7 +22,9 @@ exports = module.exports = app => {
   app.get('/', routes.views.index);
   app.get('/udgivelser/:pubtype', routes.views.publications);
   app.get('/udgivelser/:pubtype/:key', routes.views.publication);
+  app.get('/events/', routes.views.events);
   app.get('/events/:eventtype/:key', routes.views.event);
+  app.get('/articles/:articletype', routes.views.articlesarchive);
   app.get('/articles/:articletype/:key', routes.views.article);
 };
 

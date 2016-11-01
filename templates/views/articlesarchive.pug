@@ -1,0 +1,14 @@
+extends ../layouts/default
+include ../mixins/elements
+
+block content
+  if articles.length
+    h2 Arkiv af #{articletype}er
+    table.table.table-striped.table-inverse(style="width: 100%;")
+      tbody
+        each article in articles
+          tr
+            td
+              a(href=article.articleUrl)= article.title
+            td= article._.createdAt.format('LL')
+

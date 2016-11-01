@@ -3,8 +3,11 @@ include ../mixins/elements
 
 block content
   if section === 'bog'
-    h2 Bøger
-    p De nyeste bogudgivelser fra Science Fiction Cirklen. For bestilling - læs her. Røde priser angiver medlemspriser. Kontakt bogredaktøren på bog@sciencefiction.dk for spørgsmål angående bøger.
+    if series
+      h2 Bøger i serien "#{series}"
+    else
+      h2 Bøger
+      p De nyeste bogudgivelser fra Science Fiction Cirklen. For bestilling - læs her. Røde priser angiver medlemspriser. Kontakt bogredaktøren på bog@sciencefiction.dk for spørgsmål angående bøger.
   if section === 'proxima'
     h2 Proxima
     p Proxima er SFC's flagskib. Tidsskriftet er udkommet igennem alle årene. Det tager hele genren under kærlig behandling. Du finder artikler om temaer, forfattere og baggrundsinformation i det hele taget. I hvert nummer er der også gerne en eller flere noveller. Og du finder altid anmeldelser af både danske og udenlandske nyudgivelser, film, tidsskrifter og andet.

@@ -1,6 +1,5 @@
 import keystone from 'keystone';
 const Publication = keystone.list('Publication');
-const Article = keystone.list('Article');
 
 exports = module.exports = (req, res) => {
 
@@ -16,6 +15,7 @@ exports = module.exports = (req, res) => {
     });
     if(req.query.series) {
       q.where('series', req.query.series);
+      locals.series = Publication.fields.series.labels[req.query.series];
     }
     q.where('pubtype', req.params.pubtype);
     q.sort('-pubdate');

@@ -25,5 +25,7 @@ block content
 block bottom-sidebar
   .well
     h4 Nyeste bøger
+      span.pull-right
+        a(href='/udgivelser/bog') se alle
     each pub in pubs
       +publication-card(pub)

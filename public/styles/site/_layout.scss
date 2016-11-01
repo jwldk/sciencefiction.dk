@@ -1,15 +1,13 @@
 .publication-card {
   color: #333;
   text-decoration: none;
+  font-size: 14px;
 }
 
+body {
+  font-size: 16px;
+}
 #content {
-  .article-content {
-    p {
-      font-size: 16px;
-    }
-  }
-  
   .img-responsive {
     width: 100%;
   }
