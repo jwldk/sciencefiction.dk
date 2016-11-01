@@ -31,3 +31,4 @@ node_modules
 .DS_Store
 
 public/files
+public/styles/site.css
