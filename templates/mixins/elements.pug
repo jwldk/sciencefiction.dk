@@ -13,13 +13,6 @@ mixin publication-card(pub)
             p Udgivet #[span #{pub._.pubdate.format('LL')}]
           else if pub.pubtype === 'novum'
             p= pub._.pubdate.format('MMMM YYYY')
-          else if pub.pubtype === 'proxima'
-            p
-              if pub._.pubdate.moment().quarter() > 3
-                | efterår 
-              else
-                | forår
-              = pub._.pubdate.format('YYYY')
           if pub.price
             p #{pub.price} kr 
                 | #[span(style="color: #ff6600;") (#{pub.memberPrice} kr)]

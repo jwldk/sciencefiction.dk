@@ -9,15 +9,16 @@ exports = module.exports = (req, res) => {
   locals.section = req.params.pubtype;
 
   view.on('init', (next) => {
-    let q = Publication.paginate({
-      page: req.query.page || 1,
-      perPage: 10
-    });
+    let filter = { $and: [{pubtype: req.params.pubtype}] };
     if(req.query.series) {
-      q.where('series', req.query.series);
+      filter.$and.push({series: req.query.series});
       locals.series = Publication.fields.series.labels[req.query.series];
     }
-    q.where('pubtype', req.params.pubtype);
+    let q = Publication.paginate({
+      page: req.query.page || 1,
+      perPage: req.query.series ? 1000 : 10, // Avoid pagination on series
+      filters: filter
+    });
     q.sort('-pubdate');
     q.exec((err, publications) => {
       locals.publications = publications;

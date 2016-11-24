@@ -22,4 +22,19 @@ block content
     each pub in publications.results
       .col-md-6
         +publication-card(pub)
+  if publications.totalPages > 1
+    .row
+      .col-md-12.text-center
+        ul.pagination
+          if publications.previous
+            li: a(href='?page=' + publications.previous): span.glyphicon.glyphicon-chevron-left
+          else
+            li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+          each p, i in publications.pages
+            li(class=publications.currentPage === p ? 'active' : null)
+              a(href='?page=' + (p === '...' ? (i ? publications.totalPages : 1) : p ))= p
+          if publications.next
+            li: a(href='?page=' + publications.next): span.glyphicon.glyphicon-chevron-right
+          else
+            li.disabled: a(href='?page=' + publications.totalPages): span.glyphicon.glyphicon-chevron-right
 

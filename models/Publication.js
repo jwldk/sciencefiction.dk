@@ -24,7 +24,7 @@ var pubStorage = new keystone.Storage({
 
 Publication.add({
   title: { type: Types.Text, required: true, initial: true, index: true },
-  subtitle: { type: Types.Text, dependsOn: { pubtype: 'bog'} },
+  subtitle: { type: Types.Text },
   content: { type: Types.Html, wysiwyg: true },
   pubtype: { type: Types.Select, options: [
     { value: 'novum', label: 'Novum' },

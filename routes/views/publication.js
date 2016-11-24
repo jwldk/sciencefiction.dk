@@ -21,13 +21,17 @@ exports = module.exports = (req, res) => {
   });
 
   view.on('init', (next) => {
-    Publication.model.find()
-      .where('series', locals.publication.series)
-      .where('key').ne(locals.publication.key)
-      .exec((err, pubs) => {
-        locals.similar = pubs;
-        next(); 
-      });
+    if(locals.publication.pubtype === 'bog') {
+      Publication.model.find()
+        .where('series', locals.publication.series)
+        .where('key').ne(locals.publication.key)
+        .exec((err, pubs) => {
+          locals.similar = pubs;
+          next(); 
+        });
+    } else {
+      next();
+    }
   });
   // Render the view
   view.render('publication');

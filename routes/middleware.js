@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import async from 'async';
 import keystone from 'keystone';
 const EventEntry = keystone.list('Evententry');
