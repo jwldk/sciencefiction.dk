@@ -94,7 +94,7 @@ html(lang='en')
                 p 
                   a(href=nextevent.articleUrl)= nextevent.title
                   br
-                  = nextevent._.startAt.format('dddd, D MMMM, HH:MM')
+                  = nextevent._.startAt.format('dddd, D MMMM, HH:mm')
               else
                 | Ingen kommende møder
           .well
@@ -105,6 +105,13 @@ html(lang='en')
               .col-md-6
                 a(href='/articles/static/proxima-abonnement')
                   img.img-responsive(src='/images/proximaabo.jpg')
+              .col-md-12(style="margin-bottom: 10px;")
+              .col-md-6
+                a(href='/articles/static/bestilling')
+                  img.img-responsive(src='/images/bestil.jpg')
+              .col-md-6
+                a(href="https://www.facebook.com/groups/24423896062/", target="_blank")
+                  img.img-responsive(src="/images/findfb.png")
           block middle-sidebar
             .well
               h4 Nye udgivelser
