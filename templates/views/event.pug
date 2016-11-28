@@ -1,6 +1,10 @@
 extends ../layouts/default
 
 block content
+  ol.breadcrumb
+    li.breadcrumb-item
+      a(href='/events/'+event.eventtype)= event.eventtypeLabel
+    li.breadcrumb-item.active= event.title
   h2= event.title
   h3.subtitle
     span.glyphicon.glyphicon-time

@@ -24,6 +24,7 @@ exports = module.exports = app => {
   app.get('/udgivelser/:pubtype/:key', routes.views.publication);
   app.get('/dancon', routes.views.dancon);
   app.get('/events/', routes.views.events);
+  app.get('/events/:eventtype', routes.views.allevents);
   app.get('/events/:eventtype/:key', routes.views.event);
   app.get('/articles/:articletype', routes.views.articlesarchive);
   app.get('/articles/:articletype/:key', routes.views.article);

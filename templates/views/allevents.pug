@@ -1,0 +1,15 @@
+extends ../layouts/default
+include ../mixins/elements
+
+block content
+  if events.length
+    h2= events[0].eventtypeLabel
+    table.table.table-striped.table-inverse(style="width: 100%;")
+      tbody
+        each event in events
+          tr
+            td
+              a(href=event.articleUrl)= event.title
+            td= event._.startAt.format('LLLL')
+            td= event.venue
+
