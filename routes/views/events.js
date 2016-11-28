@@ -8,7 +8,7 @@ exports = module.exports = (req, res) => {
 
   view.on('init', (next) => {
     EventEntry.model
-      .find({'eventtype': 'medlem', 'endAt': {'$gte': new Date()}})
+      .find({'eventtype': {$in: ['medlem', 'dancon']}, 'endAt': {'$gte': new Date()}})
       .sort('startAt')
       .exec((err, events) => {
         locals.medlemsevents = events;

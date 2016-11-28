@@ -5,7 +5,13 @@ block content
   h3.subtitle
     span.glyphicon.glyphicon-time
     |  
-    = event._.startAt.format('LLLL')
+    if event.eventtype !== 'dancon'
+      = event._.startAt.format('LLLL')
+    else
+      = event._.startAt.format('LLLL')
+      |  - 
+      = event._.endAt.format('LLLL')
+
   .row
     .col-md-8
       .article-content

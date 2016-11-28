@@ -13,7 +13,7 @@ EventEntry.add({
   description: { type: Types.Html, wysiwyg: true },
   venue: { type: Types.Text, default: 'Valby Kulturhus' },
   room: { type: Types.Text, default: '3 sal, lokale 1' },
-  eventtype: { type: Types.Select, options: 'medlem, bestyrelse' }
+  eventtype: { type: Types.Select, options: 'medlem, bestyrelse, dancon' }
 });
 
 EventEntry.schema.virtual('articleUrl').get(function() {
