@@ -19,6 +19,7 @@ keystone.init({
   'view engine': 'pug',
 
   'wysiwyg menubar': true,
+  'wysiwyg additional options': { convert_urls: false },
 
   'auto update': true,
   'session': true,
