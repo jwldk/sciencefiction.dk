@@ -25,6 +25,7 @@ exports = module.exports = (req, res) => {
       Publication.model.find()
         .where('series', locals.publication.series)
         .where('key').ne(locals.publication.key)
+        .sort('-pubdate')
         .exec((err, pubs) => {
           locals.similar = pubs;
           next(); 
