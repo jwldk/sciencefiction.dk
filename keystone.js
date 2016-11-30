@@ -18,6 +18,8 @@ keystone.init({
   'views': 'templates/views',
   'view engine': 'pug',
 
+  'wysiwyg menubar': true,
+
   'auto update': true,
   'session': true,
   'session store': 'mongo',
