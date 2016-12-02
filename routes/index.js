@@ -18,7 +18,7 @@ keystone.set('404', function(req, res, next) {
 // Setup Route Bindings
 exports = module.exports = app => {
   // Views
-  app.get('*', commonElements);
+  app.all('*', commonElements);
   app.get('/', routes.views.index);
   app.get('/udgivelser/:pubtype', routes.views.publications);
   app.get('/udgivelser/:pubtype/:key', routes.views.publication);
@@ -28,5 +28,6 @@ exports = module.exports = app => {
   app.get('/events/:eventtype/:key', routes.views.event);
   app.get('/articles/:articletype', routes.views.articlesarchive);
   app.get('/articles/:articletype/:key', routes.views.article);
+  app.all('/form/:key', routes.views.form);
 };
 

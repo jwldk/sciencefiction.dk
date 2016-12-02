@@ -1,0 +1,51 @@
+extends ../layouts/default
+include ../mixins/flash-messages
+
+block content
+  h2= form.title
+  .row
+    .col-md-12
+      .form-content
+        // We non-elegantly cram the actual forms in here
+        if !message
+          != form.content.beforeForm
+          form(method='post').form-horizontal
+            input(type='hidden', name='formtype', value=form.key)
+            .form-group
+              label.col-sm-2.control-label(for='name') Navn
+              .col-sm-8
+                input#name.form-control.input-md(name='name', type='text', placeholder='Dit navn', required)
+            .form-group
+              label.col-sm-2.control-label(for='email') Email
+              .col-sm-8
+                input#email.form-control.input-md(name='email', type='email', placeholder='email@email.dk', required)
+            .form-group
+              label.col-sm-2.control-label(for='address') Adresse
+              .col-sm-8
+                textarea#address.form-control(name='address', rows=3, required)
+            if form.key === 'bestilling'
+              .form-group
+                label.col-sm-2.control-label(for='order') Bestilling
+                .col-sm-8
+                  textarea#order.form-control(name='order', rows=5, placeholder='Skriv titlerne du vil bestille', required)
+              .form-group
+                label.col-sm-2.control-label(for='prepaid') Forudbetalt
+                .col-sm-8
+                  label.checkbox-inline(for='prepaid')
+                    input#prepaid(type='checkbox', name='prepaid', value='yes')
+                    | Ja
+            if form.key !== 'medlem'
+              .form-group
+                label.col-sm-2.control-label(for='member') Medlem
+                .col-sm-8
+                  label.checkbox-inline(for='member')
+                    input#member(type='checkbox', name='member', value='yes')
+                    | Ja
+            .form-group
+              .col-sm-2
+                button(type="submit").btn.btn-primary Send
+        else
+          +flash-message(message, 'success')
+        hr
+        != form.content.afterForm
+
