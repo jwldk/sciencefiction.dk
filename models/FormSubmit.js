@@ -13,7 +13,7 @@ FormSubmit.add({
   order: { type: Types.Textarea },
   member: { type: Types.Boolean },
   prepaid: { type: Types.Boolean },
-  formtype: { type: Types.Select, options: 'bestilling, proxima, medlem' }
+  formtype: { type: Types.Select, options: 'bestilling, proxima-abonnement, medlemsskab' }
 });
 
 FormSubmit.defaultSort = '-createdAt';
