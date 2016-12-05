@@ -1,9 +1,9 @@
 mixin publication-card(pub)
   a.publication-card(href=pub.articleUrl)
     .row
-      .col-md-6
+      .col-xs-6
         img.img-responsive(src=pub.image.url)
-      .col-md-6
+      .col-xs-6
         h5= pub.title
         if pub.subtitle
           p= pub.subtitle

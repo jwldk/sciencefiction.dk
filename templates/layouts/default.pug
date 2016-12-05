@@ -100,26 +100,26 @@ html(lang='da')
                 | Ingen kommende møder
           .well
             .row
-              .col-md-6
+              .col-xs-6
                 a(href='/form/medlemsskab')
                   img.img-responsive(src='/images/medlemsskab.jpg')
-              .col-md-6
+              .col-xs-6
                 a(href='/form/proxima-abonnement')
                   img.img-responsive(src='/images/proximaabo.jpg')
-              .col-md-12(style="margin-bottom: 10px;")
-              .col-md-6
+              .col-xs-12(style="margin-bottom: 10px;")
+              .col-xs-6
                 a(href='/form/bestilling')
                   img.img-responsive(src='/images/bestil.jpg')
-              .col-md-6
+              .col-xs-6
                 a(href="https://www.facebook.com/groups/24423896062/", target="_blank")
                   img.img-responsive(src="/images/findfb.png")
           block middle-sidebar
             .well
               h4 Nye udgivelser
               .row
-                .col-md-6
+                .col-xs-6
                   +publication-card-short(novum)
-                .col-md-6
+                .col-xs-6
                   +publication-card-short(proxima)
           block bottom-sidebar
             .well
