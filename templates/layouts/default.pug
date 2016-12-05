@@ -125,8 +125,37 @@ html(lang='en')
               h4 Prøv også
               +publication-card(random)
       // /.row
-          // /.col-lg-12
-        // /.row
+      hr
+      footer
+        .row
+          .col-md-3.col-sm-6.col-xs-6
+            p UDGIVELSER
+            ul
+              li: a(href='/udgivelser/bog') Bøger
+              li: a(href='/udgivelser/novum') Novum
+              li: a(href='/udgivelser/proxima') Proxima
+          .col-md-3.col-sm-6.col-xs-6
+            p FORENINGEN
+            ul
+              li: a(href='/articles/static/om-sfc') Om SFC
+              li: a(href='/articles/static/bestyrelse') Bestyrelse
+              li: a(href='/articles/static/vedtaegter') Vedtægter
+              li: a(href='/articles/static/sfcs-historie') SFCs historie
+              li: a(href='/articles/generalforsamling') Generalforsamlinger
+          .col-md-3.col-sm-6.col-xs-6
+            p AKTIVITETER
+            ul
+              li: a(href='/events') Medlemsmøder
+              li: a(href='/dancon') Dancon
+              li: a(href="https://www.facebook.com/groups/24423896062/", target="_blank") Facebook gruppe
+          .col-md-3.col-sm-6.col-xs-6
+            p GENVEJE
+            ul
+              li: a(href='/form/medlemsskab') Medlemsskab
+              li: a(href='/form/bestilling') Bestilling
+              li: a(href='/form/proxima-abonnement') Proxima abonnement
+              li: a(href='/articles/nyhed') Nyhedsarkiv
+              li: a(href='/articles/static/kontakt') Kontakt os
     // /.container
     // jQuery
     script(src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")
