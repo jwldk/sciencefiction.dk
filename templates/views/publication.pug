@@ -30,7 +30,8 @@ block content
           dt.col-sm-2 Serie
           dd.col-sm-10
             a(href="/udgivelser/bog?series="+publication.series)= publication.seriesLabel
-        a.btn.btn-order(type="button", href="/articles/static/bestilling") Bestil
+        if !publication.futurePubdate
+          a.btn.btn-order(type="button", href="/articles/static/bestilling") Bestil
   if publication.pubtype === 'bog' && similar.length
     h4 Lignende udgivelser
     .row.fix-row

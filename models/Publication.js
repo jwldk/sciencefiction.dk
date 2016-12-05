@@ -35,6 +35,7 @@ Publication.add({
   image: { type: Types.File, storage: pubStorage },
   isbn: { type: Types.Text, dependsOn: { pubtype: 'bog'} },
   price: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
+  overrideMemberPrice: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
   author: { type: Types.Text, dependsOn: { pubtype: 'bog'} },
   pages: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
   series: { type: Types.Select, dependsOn: { pubtype: 'bog'}, options: [
@@ -51,8 +52,16 @@ Publication.add({
   ]}
 });
 
+Publication.schema.virtual('futurePubdate').get(function() {
+  return this.pubdate > new Date();
+});
+
 Publication.schema.virtual('memberPrice').get(function() {
-  return (this.price*0.80).toFixed(2).replace('.', ',')
+  if(this.overrideMemberPrice) {
+    return this.overrideMemberPrice;
+  } else {
+    return (this.price*0.80).toFixed(2).replace('.', ',')
+  }
 });
 
 Publication.schema.virtual('articleUrl').get(function() {

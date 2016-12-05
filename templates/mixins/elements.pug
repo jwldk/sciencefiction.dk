@@ -10,7 +10,10 @@ mixin publication-card(pub)
         else if pub.author
           p af #{pub.author}
         if pub.pubtype === 'bog'
-          p Udgivet #[span #{pub._.pubdate.format('LL')}]
+          if pub.futurePubdate
+            p Udkommer #[span #{pub._.pubdate.format('LL')}]
+          else
+            p Udgivet #[span #{pub._.pubdate.format('LL')}]
         else if pub.pubtype === 'novum'
           p= pub._.pubdate.format('MMMM YYYY')
         if pub.price
