@@ -1,4 +1,6 @@
 import keystone from 'keystone';
+import striptags from 'striptags';
+
 const Types = keystone.Field.Types;
 
 const Article = new keystone.List('Article', {
@@ -15,6 +17,11 @@ Article.add({
   },
   frontpage: { type: Types.Boolean, default: false },
   articletype: { type: Types.Select, options: 'static, nyhed, generalforsamling' }
+});
+
+Article.schema.virtual('intro').get(function() {
+  let content = this.content.brief ? this.content.brief : '' + ' ' + this.content.extended;
+  return striptags(content.substr(0, 200)) + '...';
 });
 
 Article.schema.virtual('articleUrl').get(function() {

@@ -14,7 +14,8 @@
     "mongoose-simple-random": "^0.3.3",
     "node-sass": "^3.10.1",
     "node-sass-middleware": "^0.9.7",
-    "pug": "^2.0.0-beta6"
+    "pug": "^2.0.0-beta6",
+    "striptags": "^2.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",

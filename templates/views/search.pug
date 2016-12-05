@@ -1,0 +1,15 @@
+extends ../layouts/default
+
+block content
+  if !results.length
+    h2 Vi fandt ikke noget på din søgning
+  else
+    h2 Følgende sider matchede din søgning på '#{search}'
+    .row
+      each res in results
+        .col-xs-12
+          a(href=res.articleUrl)
+            h4= res.title
+          p!= res.intro
+
+

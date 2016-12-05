@@ -28,6 +28,7 @@ exports = module.exports = app => {
   app.get('/events/:eventtype/:key', routes.views.event);
   app.get('/articles/:articletype', routes.views.articlesarchive);
   app.get('/articles/:articletype/:key', routes.views.article);
+  app.get('/search', routes.views.search);
   app.all('/form/:key', routes.views.form);
 };
 

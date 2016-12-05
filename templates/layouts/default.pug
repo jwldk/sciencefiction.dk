@@ -71,10 +71,11 @@ html(lang='en')
           .col-sm-3.col-md-3.pull-right
             .navbar-form(role="search")
               .input-group
-                input.form-control(type='text')
-                span.input-group-btn
-                  button.btn.btn-default(type='button')
-                    span.glyphicon.glyphicon-search
+                form(action='/search', method='GET')
+                  input.form-control(name='search', type='text')
+                  span.input-group-btn
+                    button.btn.btn-default(type='submit')
+                      span.glyphicon.glyphicon-search
         // /.navbar-collapse
       // /.container
     // Page Content
@@ -161,4 +162,3 @@ html(lang='en')
     script(src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")
     // Bootstrap Core JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-

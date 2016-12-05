@@ -1,4 +1,6 @@
 import keystone from 'keystone';
+import striptags from 'striptags';
+
 const Types = keystone.Field.Types;
 
 const EventEntry = new keystone.List('Evententry', {
@@ -17,6 +19,10 @@ EventEntry.add({
     {value: 'medlem', label: 'Medlemsmøder'},
     {value: 'dancon', label: 'Dancons'},
     {value: 'bestyrelse', label: 'Bestyrelsesmøder'} ]}
+});
+
+EventEntry.schema.virtual('intro').get(function() {
+  return striptags(this.description.substr(0, 200)) + '...';
 });
 
 EventEntry.schema.virtual('articleUrl').get(function() {

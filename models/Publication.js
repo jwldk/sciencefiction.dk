@@ -1,5 +1,6 @@
 import keystone from 'keystone';
 import mongooseRandom from 'mongoose-simple-random';
+import striptags from 'striptags';
 
 const Types = keystone.Field.Types;
 
@@ -50,6 +51,10 @@ Publication.add({
     { value: 'roman', label: 'Romaner' },
     { value: 'engelsk', label: 'Engelsk' }
   ]}
+});
+
+Publication.schema.virtual('intro').get(function() {
+  return striptags(this.content.substr(0, 200)) + '...';
 });
 
 Publication.schema.virtual('futurePubdate').get(function() {
