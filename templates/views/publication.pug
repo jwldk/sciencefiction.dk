@@ -33,7 +33,7 @@ block content
         if !publication.futurePubdate
           a.btn.btn-order(type="button", href="/articles/static/bestilling") Bestil
   if publication.pubtype === 'bog' && similar.length
-    h4 Lignende udgivelser
+    h4(style="margin-top: 20px;") Lignende udgivelser
     .row.fix-row
       each pub, i in similar
         .col-sm-3.hidden-xs(style=i > 0 && i % 4 === 0 ? 'clear: left;' : null)

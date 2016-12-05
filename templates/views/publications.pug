@@ -7,17 +7,17 @@ block content
       h2 Bøger i serien "#{series}"
     else
       h2 Bøger
-      p De nyeste bogudgivelser fra Science Fiction Cirklen. For bestilling - læs her. Røde priser angiver medlemspriser. Kontakt bogredaktøren på bog@sciencefiction.dk for spørgsmål angående bøger.
+      p De nyeste bogudgivelser fra Science Fiction Cirklen. Røde priser angiver medlemspriser. Kontakt bogredaktøren på #[a(href='mailto:bog@sciencefiction.dk') bog@sciencefiction.dk] for spørgsmål angående bøger.
   if section === 'proxima'
     h2 Proxima
     p Proxima er SFC's flagskib. Tidsskriftet er udkommet igennem alle årene. Det tager hele genren under kærlig behandling. Du finder artikler om temaer, forfattere og baggrundsinformation i det hele taget. I hvert nummer er der også gerne en eller flere noveller. Og du finder altid anmeldelser af både danske og udenlandske nyudgivelser, film, tidsskrifter og andet.
 
     p Proxima udkommer 2 gange årligt med flad ryg og 120-130 sider pr nummer. 
-    p Kontakt Proximaredaktøren på proxima@sciencefiction.dk
+    p Kontakt Proximaredaktøren på #[a(href='mailto:proxima@sciencefiction.dk') proxima@sciencefiction.dk].
   if section === 'novum'
     h2 Novum
     p Novum er foreningens medlemsblad. Det udkommer 4 gange årligt i marts, juni, sept, dec. Hvis du er medlem af foreningen får du bladet tilsendt automatisk.
-    p Novum er selvfølgelig også et aktivt blad, hvor der kommer nye numre. Og så er det netop åbent for medlemmernes meninger, tanker, annoncer og anbefalinger. Har du læst en god bog, set en god film, eller har du på anden måde noget du gerne vil dele med / meddele de andre medlemmer af SFC, så skriv til redaktøren på novum@sciencefiction.dk.
+    p Novum er selvfølgelig også et aktivt blad, hvor der kommer nye numre. Og så er det netop åbent for medlemmernes meninger, tanker, annoncer og anbefalinger. Har du læst en god bog, set en god film, eller har du på anden måde noget du gerne vil dele med / meddele de andre medlemmer af SFC, så skriv til redaktøren på #[a(href='mailto:novum@sciencefiction.dk') novum@sciencefiction.dk].
   .row.publications
     each pub, i in publications.results
       .col-xs-6(style=i > 0 && i % 2 === 0 ? 'clear: left;' : null)
