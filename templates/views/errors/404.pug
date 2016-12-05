@@ -2,4 +2,11 @@ extends ../../layouts/default
 
 block content
   h1 404
-  p.lead Sorry, the page you requested can't be found.
+  p Denne side kunne ikke findes. Det er muligt du har fulgt et gammelt link. Prøv at søg i stedet.
+  .navbar-form
+    .input-group
+      form(action='/search', method='GET')
+        input.form-control(name='search', type='text')
+        span.input-group-btn
+          button.btn.btn-default(type='submit')
+            span.glyphicon.glyphicon-search
