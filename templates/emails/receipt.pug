@@ -1,0 +1,8 @@
+p Hej #{formsubmit.name}
+if formsubmit.order
+  p Tak for din bestilling af:
+  div(style="white-space: pre-wrap")= formsubmit.order
+!= form.receiptEmail
+p venlig hilsen
+ br
+ | SFC

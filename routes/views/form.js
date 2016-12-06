@@ -28,6 +28,7 @@ exports = module.exports = (req, res) => {
     var updater = submit.getUpdateHandler(req);
 
     updater.process(req.body, {}, (err) => {
+      submit.sendEmails(locals.form);
       locals.message = locals.form.successMessage;
       next();
     });

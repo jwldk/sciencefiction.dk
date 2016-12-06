@@ -15,7 +15,8 @@ Form.add({
     beforeForm: { type: Types.Html, wysiwyg: true, height: 150 },
     afterForm: { type: Types.Html, wysiwyg: true, height: 400 }
   },
-  successMessage: { type: Types.Html, wysiwyg: true, height: 150 }
+  successMessage: { type: Types.Html, wysiwyg: true, height: 150 },
+  receiptEmail: { type: Types.Html, wysiwyg: true, height: 300 }
 });
 
 Form.schema.virtual('intro').get(function() {

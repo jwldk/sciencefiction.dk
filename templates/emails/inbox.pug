@@ -1,0 +1,19 @@
+if formsubmit.name
+  p Navn: #{formsubmit.name}
+if formsubmit.email
+  p Email: #{formsubmit.email}
+if formsubmit.address
+  p(style="white-space: pre-wrap") Adresse:
+    br
+    = formsubmit.address
+if formsubmit.order
+  p(style="white-space: pre-wrap") Bestilling:
+    br
+    =formsubmit.order
+if formsubmit.formtype !== 'medlemsskab'
+  p Medlem: 
+    =formsubmit.member ? 'Ja' : 'Nej'
+if formsubmit.formtype === 'bestilling'
+  p Forudbetalt: 
+    =formsubmit.prepaid ? 'Ja' : 'Nej'
+

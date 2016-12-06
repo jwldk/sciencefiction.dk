@@ -34,6 +34,9 @@ keystone.set('locals', {
   utils: keystone.utils,
   editable: keystone.content.editable
 });
+
+keystone.set('mailgun api', process.env.MAILGUN_API);
+keystone.set('mailgun domain', process.env.MAILGUN_DOMAIN);
 keystone.set('routes', require('./routes'));
 keystone.set('nav', {
   users: 'users'
