@@ -8,7 +8,7 @@ const FormSubmit = new keystone.List('Formsubmit', {
 
 const SUBJECTS = {
   bestilling: { receipt: 'Din bestilling hos SFC', kasserer: 'Ny bestilling' },
-  medlemsskab: { receipt: 'Tak for din indmeldelse', kasserer: 'Nyt medlem' },
+  medlemskab: { receipt: 'Tak for din indmeldelse', kasserer: 'Nyt medlem' },
   'proxima-abonnement': { receipt: 'Dit abonnement på Proxima', kasserer: 'Ny Proxima abonnement' }
 };
 
@@ -20,7 +20,7 @@ FormSubmit.add({
   order: { type: Types.Textarea },
   member: { type: Types.Boolean },
   prepaid: { type: Types.Boolean },
-  formtype: { type: Types.Select, options: 'bestilling, proxima-abonnement, medlemsskab' }
+  formtype: { type: Types.Select, options: 'bestilling, proxima-abonnement, medlemskab' }
 });
 
 FormSubmit.schema.methods.sendEmails = function(form) {

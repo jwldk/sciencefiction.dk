@@ -10,7 +10,7 @@ if formsubmit.order
   p(style="white-space: pre-wrap") Bestilling:
     br
     =formsubmit.order
-if formsubmit.formtype !== 'medlemsskab'
+if formsubmit.formtype !== 'medlemskab'
   p Medlem: 
     =formsubmit.member ? 'Ja' : 'Nej'
 if formsubmit.formtype === 'bestilling'
