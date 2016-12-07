@@ -24,3 +24,6 @@ block content
       .well
         p= event.venue
         p= event.room
+        if event.facebookEvent
+          p
+            a(href=event.facebookEvent, target="_blank") Facebook event

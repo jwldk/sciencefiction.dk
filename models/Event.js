@@ -15,6 +15,7 @@ EventEntry.add({
   description: { type: Types.Html, wysiwyg: true },
   venue: { type: Types.Text, default: 'Valby Kulturhus' },
   room: { type: Types.Text, default: '3 sal, lokale 1' },
+  facebookEvent: { type: Types.Url },
   eventtype: { type: Types.Select, options: [
     {value: 'medlem', label: 'Medlemsmøder'},
     {value: 'dancon', label: 'Dancons'},

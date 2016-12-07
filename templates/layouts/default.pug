@@ -68,14 +68,13 @@ html(lang='da')
               a(href='/form/bestilling') Bestilling
             li
               a(href='/articles/static/kontakt') Kontakt
-          .col-sm-3.col-md-3.pull-right
-            .navbar-form(role="search")
+          .col-sm-12.col-md-3.pull-right
+            form.navbar-form(role="search", action='/search', method='GET')
               .input-group
-                form(action='/search', method='GET')
-                  input.form-control(name='search', type='text')
-                  span.input-group-btn
-                    button.btn.btn-default(type='submit')
-                      span.glyphicon.glyphicon-search
+                input.form-control(name='search', type='text')
+                .input-group-btn
+                  button.btn.btn-default(type='submit')
+                    i.glyphicon.glyphicon-search
         // /.navbar-collapse
       // /.container
     // Page Content
