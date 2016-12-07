@@ -75,6 +75,6 @@ Publication.schema.virtual('articleUrl').get(function() {
 
 Publication.schema.plugin(mongooseRandom);
 
-Publication.defaultColumns = 'title';
+Publication.defaultColumns = 'title, pubtype';
 Publication.register();
 

@@ -28,5 +28,5 @@ Article.schema.virtual('articleUrl').get(function() {
   return '/articles/'+this.articletype+'/'+this.key;
 });
 
-Article.defaultColumns = 'title';
+Article.defaultColumns = 'title, articletype';
 Article.register();
