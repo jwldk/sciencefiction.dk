@@ -21,6 +21,7 @@ exports = module.exports = (req, res) => {
     });
     q.sort('-pubdate');
     q.exec((err, publications) => {
+      if(publications.total === 0) return res.status(404).render('errors/404');
       locals.publications = publications;
       next();
     });

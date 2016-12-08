@@ -15,6 +15,7 @@ exports = module.exports = (req, res) => {
       .where('pubtype', req.params.pubtype)
       .where('key', req.params.key)
       .exec((err, publication) => {
+        if(!publication) return res.status(404).render('errors/404');
         locals.publication = publication;
         next();
       });
