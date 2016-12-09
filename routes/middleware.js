@@ -4,12 +4,19 @@ const EventEntry = keystone.list('Evententry');
 const Publication = keystone.list('Publication');
 
 export function initLocals(req, res, next) {
-  res.locals.navLinks = [
-    { label: 'Home', key: 'home', href: '/' },
-    { label: 'Contact', key: 'contact', href: '/contact' }
-  ];
   res.locals.user = req.user;
   res.locals.uri = req.path;
+  next();
+}
+
+export function redirects(req, res, next) {
+  console.log(req.path);
+  if(req.path.includes('.html')) {
+    var path = req.path.replace('.html', '');
+    if(path === '/faq') return res.redirect('/artikler/static/faq');
+    if(path.includes('/udgivelser/boger/')) return res.redirect(path.replace('boger', 'bog'));
+    return res.redirect(path);
+  }
   next();
 }
 
