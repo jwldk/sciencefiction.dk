@@ -10,7 +10,6 @@ export function initLocals(req, res, next) {
 }
 
 export function redirects(req, res, next) {
-  console.log(req.path);
   if(req.path.includes('.html')) {
     var path = req.path.replace('.html', '');
     if(path === '/faq') return res.redirect('/artikler/static/faq');
