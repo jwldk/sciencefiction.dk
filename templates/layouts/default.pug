@@ -10,6 +10,7 @@ html(lang='da')
     title= title ? 'Science Fiction Cirklen - ' + title : 'Science Fiction Cirklen'
     // CSS
     link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='alternate', type='application/rss+xml', title='Seneste nyt fra Science Fiction Cirklen', href='/feed/rss')
     link(href='/styles/site.css', rel='stylesheet')
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
@@ -149,12 +150,13 @@ html(lang='da')
               li: a(href='/articles/static/vedtaegter') Vedtægter
               li: a(href='/articles/static/sfcs-historie') SFCs historie
               li: a(href='/articles/generalforsamling') Generalforsamlinger
+              li: a(href='/articles/nyhed') Nyhedsarkiv
           .col-md-3.col-sm-6.col-xs-6
             p AKTIVITETER
             ul
               li: a(href='/events') Medlemsmøder
               li: a(href='/dancon') Dancon
-              li: a(href="https://www.facebook.com/groups/24423896062/", target="_blank") Facebook gruppe
+              li: a(href='https://www.facebook.com/groups/24423896062/', target="_blank") Facebook gruppe
           .col-md-3.col-sm-6.col-xs-6
             p GENVEJE
             ul
@@ -162,8 +164,8 @@ html(lang='da')
               li: a(href='/form/bestilling') Bestilling
               li: a(href='/form/proxima-abonnement') Proxima abonnement
               li: a(href='/articles/static/faq') FAQ om science fiction
-              li: a(href='/articles/nyhed') Nyhedsarkiv
               li: a(href='/articles/static/kontakt') Kontakt os
+              li: a(href='/feed/rss') RSS feed
     // /.container
     // jQuery
     script(src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous")

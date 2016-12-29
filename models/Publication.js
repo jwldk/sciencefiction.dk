@@ -76,6 +76,7 @@ Publication.schema.virtual('articleUrl').get(function() {
 
 Publication.schema.plugin(mongooseRandom);
 
+Publication.defaultSort = '-pubdate';
 Publication.defaultColumns = 'title, pubtype';
 Publication.register();
 
