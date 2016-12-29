@@ -30,5 +30,6 @@ exports = module.exports = app => {
   app.get('/articles/:articletype/:key', routes.views.article);
   app.get('/search', routes.views.search);
   app.all('/form/:key', routes.views.form);
+  app.get('/feed/rss', routes.views.rss);
 };
 

@@ -22,7 +22,7 @@ exports = module.exports = (req, res) => {
   });
 
   view.on('init', (next) => {
-    if(locals.publication.pubtype === 'bog') {
+    if(locals.publication && locals.publication.pubtype === 'bog') {
       Publication.model.find()
         .where('series', locals.publication.series)
         .where('key').ne(locals.publication.key)

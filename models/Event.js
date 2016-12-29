@@ -9,6 +9,7 @@ const EventEntry = new keystone.List('Evententry', {
 });
 
 EventEntry.add({
+  createdAt: { type: Types.Date, default: Date.now },
   startAt: { type: Types.Datetime },
   endAt: { type: Types.Datetime },
   title: { type:  Types.Text, required: true, initial: true, index: true, unique: true},

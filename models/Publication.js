@@ -24,6 +24,7 @@ var pubStorage = new keystone.Storage({
 });
 
 Publication.add({
+  createdAt: { type: Types.Date, default: Date.now },
   title: { type: Types.Text, required: true, initial: true, index: true },
   subtitle: { type: Types.Text },
   content: { type: Types.Html, wysiwyg: true },
