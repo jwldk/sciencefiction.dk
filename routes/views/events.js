@@ -26,5 +26,7 @@ exports = module.exports = (req, res) => {
       });
   });
 
+  locals.title = 'Medlemsmøder';
+
   view.render('events');
 };

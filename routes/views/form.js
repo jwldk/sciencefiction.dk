@@ -19,6 +19,7 @@ exports = module.exports = (req, res) => {
           return res.status(404).render('errors/404');
         }
         locals.form = form;
+        locals.title = form.title;
         next();
       });
   });

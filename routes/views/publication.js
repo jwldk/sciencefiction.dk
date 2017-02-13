@@ -17,6 +17,7 @@ exports = module.exports = (req, res) => {
       .exec((err, publication) => {
         if(!publication) return res.status(404).render('errors/404');
         locals.publication = publication;
+        locals.title = publication.title;
         next();
       });
   });

@@ -27,5 +27,7 @@ exports = module.exports = (req, res) => {
     });
   });
 
+  locals.title = 'Udgivelser';
+
   view.render('publications');
 };

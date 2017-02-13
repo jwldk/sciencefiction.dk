@@ -16,6 +16,7 @@ exports = module.exports = (req, res) => {
       .where('key', req.params.key)
       .exec((err, event) => {
         locals.event = event;
+        locals.title = event.title;
         next();
       });
   });
