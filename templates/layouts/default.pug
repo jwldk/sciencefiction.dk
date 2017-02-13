@@ -17,6 +17,20 @@ html(lang='da')
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
       script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    - var domain = "http://www.sciencefiction.dk";
+    meta(property="og:type" name="og:type" content="website")
+    meta(property="og:title" name="og:title" content=title)
+    if publication
+      meta(property="og:image" name="og:image" content=domain + publication.image.url)
+    else
+      - var imageUrl = domain + "/images/logo.jpg";
+      meta(property="og:image" name="og:image" content=domain + "/images/logo.jpg")
+    meta(property="og:image:width" name="og:image:width" content="720")
+    meta(property="og:image:height" name="og:image:height" content="720")
+    - var url = domain + uri;
+    meta(property="og:url" name="og:url" content=url)
+
+
   body
     // Navigation
     nav.navbar.navbar-inverse.navbar-top(role='navigation')
