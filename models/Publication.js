@@ -9,7 +9,7 @@ const Publication = new keystone.List('Publication', {
   map: { name: 'title'}
 });
 
-var pubStorage = new keystone.Storage({
+const pubStorage = new keystone.Storage({
   adapter: keystone.Storage.Adapters.FS,
   fs: {
     path: keystone.expandPath('./public/files/publications'),

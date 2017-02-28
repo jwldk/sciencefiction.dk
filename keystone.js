@@ -20,6 +20,8 @@ keystone.init({
 
   'wysiwyg menubar': true,
   'wysiwyg additional options': { convert_urls: false },
+  'wysiwyg additional plugins': 'table',
+  'wysiwyg additional buttons': 'table',
 
   'auto update': true,
   'session': true,
