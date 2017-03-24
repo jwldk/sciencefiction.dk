@@ -11,6 +11,9 @@ block content
             td
               a(href=event.articleUrl)= event.title
             td= event._.startAt.format('LLLL')
+              if event.eventtype == 'dancon'
+                br
+                = event._.endAt.format('LLLL')
             td= event.venue
 
   if bestyrelsesevents.length
