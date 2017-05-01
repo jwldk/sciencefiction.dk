@@ -108,14 +108,15 @@ html(lang='da')
         #sidebar.col-md-4
           block top-sidebar
             .well
-              h4 Næste medlemsmøde
+              h4 Kommende medlemsmøder
                 span.pull-right
                   a(href='/events') se alle
-              if nextevent
-                p 
-                  a(href=nextevent.articleUrl)= nextevent.title
-                  br
-                  = nextevent._.startAt.format('dddd, D MMMM, HH:mm')
+              if nextevents && nextevents.length
+                each nextevent in nextevents
+                  p
+                    a(href=nextevent.articleUrl)= nextevent.title
+                    br
+                    = nextevent._.startAt.format('dddd, D MMMM, HH:mm')
               else
                 | Ingen kommende møder
           .well

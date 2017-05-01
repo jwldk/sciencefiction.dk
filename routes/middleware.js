@@ -25,10 +25,11 @@ export function commonElements(req, res, next) {
   async.parallel([
     (cb) => {
       EventEntry.model
-        .findOne({'eventtype': 'medlem', 'endAt': {'$gte': new Date()}})
+        .find({'eventtype': {$in: ['medlem', 'dancon']}, 'endAt': {'$gte': new Date()}})
         .sort('startAt')
-        .exec((err, event) => {
-          locals.nextevent = event;
+        .limit(2)
+        .exec((err, events) => {
+          locals.nextevents = events;
           cb();
         });
     },
