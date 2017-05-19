@@ -12,7 +12,7 @@ exports = module.exports = (req, res) => {
   locals.section = 'home';
 
   view.on('init', (next) => {
-    Article.model.find({'articletype': 'nyhed', 'frontpage': true })
+    Article.model.find({ 'frontpage': true })
       .sort('-createdAt')
       .exec((err, news) => {
         locals.news = news;
