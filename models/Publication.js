@@ -31,14 +31,16 @@ Publication.add({
   pubtype: { type: Types.Select, options: [
     { value: 'novum', label: 'Novum' },
     { value: 'proxima', label: 'Proxima' },
+    { value: 'cirkelserien', label: 'Cirkel Serien' },
+    { value: 'nyeverdener', label: 'Nye Verdener' },
     { value: 'bog', label: 'Bøger' }
   ]},
   pubdate: { type: Types.Date },
   image: { type: Types.File, storage: pubStorage },
-  isbn: { type: Types.Text, dependsOn: { pubtype: 'bog'} },
+  isbn: { type: Types.Text, dependsOn: { pubtype: ['bog', 'cirkelserien']} },
   price: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
   overrideMemberPrice: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
-  author: { type: Types.Text, dependsOn: { pubtype: 'bog'} },
+  author: { type: Types.Text, dependsOn: { pubtype: ['bog', 'cirkelserien']} },
   pages: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
   series: { type: Types.Select, dependsOn: { pubtype: 'bog'}, options: [
     { value: 'luo', label: 'Lige under overfladen' },

@@ -19,6 +19,10 @@ block content
     h2 Novum
     p Novum er foreningens medlemsblad. Det udkommer 4 gange årligt i marts, juni, sept, dec. Hvis du er medlem af foreningen får du bladet tilsendt automatisk.
     p Novum er selvfølgelig også et aktivt blad, hvor der kommer nye numre. Og så er det netop åbent for medlemmernes meninger, tanker, annoncer og anbefalinger. Har du læst en god bog, set en god film, eller har du på anden måde noget du gerne vil dele med / meddele de andre medlemmer af SFC, så skriv til redaktøren på #[a(href='mailto:novum@sciencefiction.dk') novum@sciencefiction.dk].
+  if section === 'cirkelserien'
+    h2 Cirkel Serien
+  if section === 'nyeverdener'
+    h2 Nye Verdener
   .row.publications
     each pub, i in publications.results
       .col-xs-6(style=i > 0 && i % 2 === 0 ? 'clear: left;' : null)
