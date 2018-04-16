@@ -16,7 +16,7 @@ block content
         != publication.content
     .col-sm-5
       img.img-responsive(src=publication.image.url)
-      if publication.pubtype === 'bog'
+      if publication.pubtype === 'bog' 
         dl.row
           dt.col-sm-2 Pris
           dd.col-sm-10= publication.price
@@ -32,6 +32,10 @@ block content
             a(href="/udgivelser/bog?series="+publication.series)= publication.seriesLabel
         if !publication.futurePubdate
           a.btn.btn-order(type="button", href="/form/bestilling") Bestil
+      if publication.pubtype === 'cirkelserien'
+        dl.row
+          dt.col-sm-2 ISBN
+          dd.col-sm-10= publication.isbn
   if publication.pubtype === 'bog' && similar.length
     h4(style="margin-top: 20px;").hidden-xs Lignende udgivelser
     .row.fix-row
