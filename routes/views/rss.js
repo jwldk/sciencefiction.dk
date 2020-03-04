@@ -65,6 +65,7 @@ exports = module.exports = (req, res) => {
       feed.item({
         title: e.title,
         url: 'http://www.sciencefiction.dk' + e.articleUrl,
+        description: e.intro,
         date: e.createdAt
       });
     });
