@@ -20,7 +20,8 @@ FormSubmit.add({
   order: { type: Types.Textarea },
   member: { type: Types.Boolean },
   prepaid: { type: Types.Boolean },
-  formtype: { type: Types.Select, options: 'bestilling, proxima-abonnement, medlemskab' }
+  formtype: { type: Types.Select, options: 'bestilling, proxima-abonnement, medlemskab' },
+  phone: { type: Types.Text },
 });
 
 FormSubmit.schema.methods.sendEmails = function(form) {

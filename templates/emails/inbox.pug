@@ -10,6 +10,8 @@ if formsubmit.order
   p(style="white-space: pre-wrap") Bestilling:
     br
     =formsubmit.order
+if formsubmit.phone
+  p Mobilnummer: #{formsubmit.phone}
 if formsubmit.formtype !== 'medlemskab'
   p Medlem: 
     =formsubmit.member ? 'Ja' : 'Nej'

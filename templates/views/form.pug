@@ -41,6 +41,11 @@ block content
                   label.checkbox-inline(for='member')
                     input#member(type='checkbox', name='member', value='yes')
                     | Ja
+            if form.key === 'bestilling'
+              .form-group
+                label.col-sm-2.control-label(for='name') Mobilnummer 
+                .col-sm-8
+                  input#phone.form-control.input-md(name='phone', type='text', placeholder='Mobilnummer til SMS advisering (valgfrit)')
             .form-group
               .col-sm-2
                 button(type="submit").btn.btn-primary Send
