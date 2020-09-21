@@ -20,6 +20,7 @@ exports = module.exports = (req, res) => {
         }
         locals.form = form;
         locals.title = form.title;
+        locals.formdata = {};
         next();
       });
   });
@@ -27,10 +28,15 @@ exports = module.exports = (req, res) => {
   view.on('post', (next) => {
     var submit = new FormSubmit.model();
     var updater = submit.getUpdateHandler(req);
+    locals.formdata = req.body;
 
     updater.process(req.body, {}, (err) => {
-      submit.sendEmails(locals.form);
-      locals.message = locals.form.successMessage;
+      if(err) {
+        locals.errors = "Skriv 42 i kodefeltet";
+      } else {
+        submit.sendEmails(locals.form);
+        locals.message = locals.form.successMessage;
+      }
       next();
     });
   });

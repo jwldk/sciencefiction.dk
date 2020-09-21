@@ -22,6 +22,15 @@ FormSubmit.add({
   prepaid: { type: Types.Boolean },
   formtype: { type: Types.Select, options: 'bestilling, proxima-abonnement, medlemskab' },
   phone: { type: Types.Text },
+  botkey: { type: Types.Text },
+});
+
+FormSubmit.schema.pre('validate', function(next) {
+  if (this.botkey != 42) {
+    next(Error("Skriv 42 i feltet"));
+  } else {
+    next();
+  }
 });
 
 FormSubmit.schema.methods.sendEmails = function(form) {

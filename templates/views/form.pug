@@ -14,43 +14,49 @@ block content
             .form-group
               label.col-sm-2.control-label(for='name') Navn
               .col-sm-8
-                input#name.form-control.input-md(name='name', type='text', placeholder='Dit navn', required)
+                input#name.form-control.input-md(name='name', type='text', placeholder='Dit navn', required, value=formdata.name)
             .form-group
               label.col-sm-2.control-label(for='email') Email
               .col-sm-8
-                input#email.form-control.input-md(name='email', type='email', placeholder='email@email.dk', required)
+                input#email.form-control.input-md(name='email', type='email', placeholder='email@email.dk', required, value=formdata.email)
             .form-group
               label.col-sm-2.control-label(for='address') Adresse
               .col-sm-8
-                textarea#address.form-control(name='address', rows=3, required)
+                textarea#address.form-control(name='address', rows=3, required)= formdata.address
             if form.key === 'bestilling'
               .form-group
                 label.col-sm-2.control-label(for='order') Bestilling
                 .col-sm-8
-                  textarea#order.form-control(name='order', rows=5, placeholder='Skriv titlerne du vil bestille', required)
+                  textarea#order.form-control(name='order', rows=5, placeholder='Skriv titlerne du vil bestille', required)= formdata.order
               .form-group
                 label.col-sm-2.control-label(for='prepaid') Forudbetalt
                 .col-sm-8
                   label.checkbox-inline(for='prepaid')
-                    input#prepaid(type='checkbox', name='prepaid', value='yes')
+                    input#prepaid(type='checkbox', name='prepaid', value='yes', checked=formdata.prepaid)
                     | Ja
             if form.key !== 'medlemskab'
               .form-group
                 label.col-sm-2.control-label(for='member') Medlem
                 .col-sm-8
                   label.checkbox-inline(for='member')
-                    input#member(type='checkbox', name='member', value='yes')
+                    input#member(type='checkbox', name='member', value='yes', checked=formdata.member)
                     | Ja
             if form.key === 'bestilling'
               .form-group
                 label.col-sm-2.control-label(for='name') Mobilnummer 
                 .col-sm-8
-                  input#phone.form-control.input-md(name='phone', type='text', placeholder='Mobilnummer til SMS advisering (valgfrit)')
+                  input#phone.form-control.input-md(name='phone', type='text', placeholder='Mobilnummer til SMS advisering (valgfrit)' value=formdata.phone)
+            .form-group
+              label.col-sm-2.control-label(for='kode') Kode
+              .col-sm-8
+                input#kode.form-control.input-md(name='botkey', type='text', placeholder='Skriv tallet 42 for at vise du ikke er en robot', required, value=formdata.botkey)
             .form-group
               .col-sm-2
                 button(type="submit").btn.btn-primary Send
         else
           +flash-message(message, 'success')
+        if errors
+          +flash-message(errors, 'danger')
         hr
         != form.content.afterForm
 
