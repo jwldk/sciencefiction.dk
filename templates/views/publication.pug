@@ -18,24 +18,32 @@ block content
       img.img-responsive(src=publication.image.url)
       if publication.pubtype === 'bog' 
         dl.row
-          dt.col-sm-2 Pris
-          dd.col-sm-10= publication.price
+          dt.col-sm-4 Pris
+          dd.col-sm-8= publication.price
             |  kr
             br
             | #[span(style="color: #ff6600;") (medlemmer: #{publication.memberPrice} kr)]
-          dt.col-sm-2 Sider
-          dd.col-sm-10= publication.pages
-          dt.col-sm-2 ISBN
-          dd.col-sm-10= publication.isbn
-          dt.col-sm-2 Serie
-          dd.col-sm-10
+          dt.col-sm-4 Sider
+          dd.col-sm-8= publication.pages
+          dt.col-sm-4 ISBN
+          dd.col-sm-8= publication.isbn
+          dt.col-sm-4 Serie
+          dd.col-sm-8
             a(href="/udgivelser/bog?series="+publication.series)= publication.seriesLabel
+          dt.col-sm-4 Udgivet
+          dd.col-sm-8= publication._.pubdate.format('LL')
+          if publication.ebooklink_epub
+            dt.col-sm-4 E-bog
+            dd.col-sm-8
+              a(href=publication.ebooklink_epub, target="_blank") E-Pub
+              | 
+              a(href=publication.ebooklink_pdf, target="_blank") PDF
         if !publication.futurePubdate
           a.btn.btn-order(type="button", href="/form/bestilling") Bestil
       if publication.pubtype === 'cirkelserien'
         dl.row
-          dt.col-sm-2 ISBN
-          dd.col-sm-10= publication.isbn
+          dt.col-sm-4 ISBN
+          dd.col-sm-8= publication.isbn
   if publication.pubtype === 'bog' && similar.length
     h4(style="margin-top: 20px;").hidden-xs Lignende udgivelser
     .row.fix-row

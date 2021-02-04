@@ -42,6 +42,8 @@ Publication.add({
   overrideMemberPrice: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
   author: { type: Types.Text, dependsOn: { pubtype: ['bog', 'cirkelserien']} },
   pages: { type: Types.Number, dependsOn: { pubtype: 'bog'} },
+  ebooklink_epub: { type: Types.Url },
+  ebooklink_pdf: { type: Types.Url },
   series: { type: Types.Select, dependsOn: { pubtype: 'bog'}, options: [
     { value: 'luo', label: 'Lige under overfladen' },
     { value: 'nydansk', label: 'Ny dansk sf' },
