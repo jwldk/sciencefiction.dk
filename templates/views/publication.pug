@@ -36,6 +36,7 @@ block content
             dt.col-sm-4 E-bog
             dd.col-sm-8
               a(href=publication.ebooklink_epub, target="_blank") E-Pub
+          if publication.ebooklink_pdf
               | 
               a(href=publication.ebooklink_pdf, target="_blank") PDF
         if !publication.futurePubdate
