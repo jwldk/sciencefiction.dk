@@ -33,6 +33,7 @@ Publication.add({
     { value: 'proxima', label: 'Proxima' },
     { value: 'cirkelserien', label: 'Cirkel Serien' },
     { value: 'nyeverdener', label: 'Nye Verdener' },
+    { value: 'tangent', label: 'Tangent-serien' },
     { value: 'bog', label: 'Bøger' }
   ]},
   pubdate: { type: Types.Date },
