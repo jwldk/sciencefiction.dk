@@ -10,6 +10,8 @@ block content
     h3.subtitle #{publication.subtitle}
   else if publication.author
     h3.subtitle af #{publication.author}
+  if publication.pubtype === 'novum'
+    h3.subtitle= publication._.pubdate.format('MMMM YYYY')
   .row
     .col-sm-7
       .article-content
